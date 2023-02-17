@@ -1,4 +1,5 @@
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import {tokenLoader} from './util/auth';
 
 import EditEventPage from './pages/EditEvent';
 import ErrorPage from './pages/Error';
@@ -21,6 +22,8 @@ const router = createBrowserRouter([
     path: '/',
     element: <RootLayout />,
     errorElement: <ErrorPage />,
+    id: 'root',
+    loader: tokenLoader,
     children: [
       { index: true, element: <HomePage /> },
       {
